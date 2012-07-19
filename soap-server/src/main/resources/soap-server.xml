@@ -15,7 +15,7 @@
     <bean name="endpoint" id="endpoint" class="com.centeractive.ws.server.endpoint.GenericContextDomEndpoint"/>
 
     <bean id="connector" class="org.mortbay.jetty.nio.SelectChannelConnector" />
-    <bean id="sslConnector" class="org.mortbay.jetty.security.SslSelectChannelConnector" />
+    <bean id="sslConnector" class="com.centeractive.ws.server.connector.SslSelectChannelConnector" />
 
     <bean id="messageFactory" class="com.centeractive.ws.server.protocol.GenericSoapMessageFactory" />
 

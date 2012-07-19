@@ -42,6 +42,12 @@
             <version>6.1.26</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>org.eclipse.jetty.aggregate</groupId>-->
+            <!--<artifactId>jetty-all</artifactId>-->
+            <!--<version>8.1.5.v20120716</version>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>com.googlecode.guava-osgi</groupId>
             <artifactId>guava-osgi</artifactId>

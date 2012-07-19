@@ -22,11 +22,13 @@ import com.centeractive.ws.server.ServiceRegistrationException;
 import com.centeractive.ws.server.SoapServerException;
 import com.centeractive.ws.server.endpoint.GenericContextDomEndpoint;
 import com.centeractive.ws.server.responder.RequestResponder;
+import com.centeractive.ws.server.connector.SslSelectChannelConnector;
 import org.mortbay.jetty.AbstractConnector;
 import org.mortbay.jetty.Handler;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.nio.SelectChannelConnector;
-import org.mortbay.jetty.security.SslSelectChannelConnector;
+//import org.mortbay.jetty.security.SslSelectChannelConnector;
+//import org.mortbay.jetty.security.SslSelectChannelConnector;
 import org.mortbay.jetty.servlet.Context;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -186,7 +188,9 @@ public final class SoapServer {
         connector.setPort(httpsPort);
         connector.setKeystore(keyStoreUrl.toString());
         connector.setKeystoreType(keyStoreType);
-        connector.setKeyPassword(keyStorePassword);
+//        if (StringUtils.isNotBlank(keyStorePassword)) {
+            connector.setKeyPassword(keyStorePassword);
+//        }
         return connector;
     }
 
