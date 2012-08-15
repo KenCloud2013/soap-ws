@@ -35,7 +35,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * User: Tom Bujok (tomasz.bujok@centeractive.com)
  * Date: 17/10/11
- * Time: Soap11:06 AM
+ * Time: 11:06 AM
  */
 public class MessageComplianceTest {
 
