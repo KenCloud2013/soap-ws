@@ -22,14 +22,13 @@ import com.centeractive.ws.builder.utils.ResourceUtils;
 import com.centeractive.ws.server.core.SoapServer;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.security.Key;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
 
 import static junit.framework.Assert.assertNotNull;
 
@@ -39,6 +38,7 @@ import static junit.framework.Assert.assertNotNull;
  */
 public class PasswordLessKeystoreTest {
 
+//    @Test
     public void generateKeyLessKeystore() throws Exception {
         URL keyStoreUrl = ResourceUtils.getResourceWithAbsolutePackagePath("/keystores", ".keystore");
         InputStream in = keyStoreUrl.openStream();
@@ -46,7 +46,7 @@ public class PasswordLessKeystoreTest {
         ks.load(in, "changeit".toCharArray());
         in.close();
 
-        String path = keyStoreUrl.getFile().replace(".keystore", "keyless.keystore");
+        String path = keyStoreUrl.getFile().replace(".keystore", "keyless2.keystore");
         File file = new File(path);
         FileOutputStream out = new FileOutputStream(file);
 
@@ -62,12 +62,13 @@ public class PasswordLessKeystoreTest {
     }
 
     @Test
-    public void loadCertificateFromKeyLessKeystore() throws Exception {
+    public void trustStoreUrl() throws Exception {
         URL keyStoreUrl = ResourceUtils.getResourceWithAbsolutePackagePath("/keystores", "keyless.keystore");
         InputStream in = keyStoreUrl.openStream();
         KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-        ks.load(in, "".toCharArray());
+        ks.load(in, null);
         in.close();
+
         Certificate certificate = ks.getCertificate("tom");
         assertNotNull(certificate);
         Key key = ks.getKey("tom", "".toCharArray());
