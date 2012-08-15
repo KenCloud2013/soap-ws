@@ -56,7 +56,7 @@ public class TransmissionExceptionTest {
     @Test
     public void messageFormatFullFormatTest() {
         TransmissionException ex = new TransmissionException("SOAP communication failed", 500, new RuntimeException("Internal server error"));
-        assertEquals("SOAP communication failed; HTTP code = [500]; Possible cause: Internal server error;", ex.getMessage());
+        assertEquals("SOAP communication failed; HTTP code = [500];", ex.getMessage());
     }
 
 }

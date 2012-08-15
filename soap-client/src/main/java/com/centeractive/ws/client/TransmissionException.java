@@ -31,9 +31,8 @@ public class TransmissionException extends SoapClientException {
 
     public TransmissionException(String response, int errorCode, Throwable cause) {
         super((response != null && response.length() > 0 ? response +"; " : "")
-                + (errorCode > 0 ? "HTTP code = [" + errorCode + "]; " : "")
-                + (cause.getMessage() != null && cause.getMessage().length() > 0 ? "Possible cause: " +cause.getMessage()
-                + ";" : ""), cause);
+                + (errorCode > 0 ? "HTTP code = [" + errorCode + "];" : "")
+                , cause);
         this.errorResponse = response;
         this.errorCode = errorCode;
     }
