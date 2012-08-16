@@ -38,7 +38,7 @@ public class TransmissionExceptionTest {
     @Test
     public void messageFormatCodeTest() {
         TransmissionException ex = new TransmissionException("", 404, new RuntimeException());
-        assertEquals("HTTP code = [404]; ", ex.getMessage());
+        assertEquals("HTTP code = [404];", ex.getMessage());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class TransmissionExceptionTest {
     @Test
     public void messageFormatCauseTest() {
         TransmissionException ex = new TransmissionException("", 0, new RuntimeException("Cause"));
-        assertEquals("Possible cause: Cause;", ex.getMessage());
+        assertEquals("", ex.getMessage());
     }
 
     @Test
