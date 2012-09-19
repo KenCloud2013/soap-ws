@@ -171,7 +171,7 @@ public final class SoapClient {
 
     private void decorateConnectionWithSoap(String soapAction, String requestEnvelope) {
         if (requestEnvelope.contains(SOAP_1_1_NAMESPACE)) {
-            soapAction = soapAction != null ? "\"" + soapAction + "\"" : "";
+            soapAction = soapAction != null ? "\"" + soapAction + "\"" : " ";
             connection.setRequestProperty(PROP_SOAP_ACTION_11, soapAction);
             connection.setRequestProperty(PROP_CONTENT_TYPE, MIMETYPE_TEXT_XML);
         } else if (requestEnvelope.contains(SOAP_1_2_NAMESPACE)) {
