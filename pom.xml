@@ -77,7 +77,6 @@
         <module>soap-client</module>
         <module>soap-server</module>
         <module>soap-test</module>
-        <module>soap-examples</module>
     </modules>
 
     <organization>

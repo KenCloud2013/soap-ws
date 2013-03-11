@@ -98,7 +98,7 @@ public abstract class AbstractCooperationTest {
             response = postRequest(endpointUrl, request);
         }
 
-        if (operation.getOperation().getStyle().equals(OperationType.REQUEST_RESPONSE)) {
+        if(SoapBuilder.isRequestResponseOperation(operation)) {
             String expectedResponse = builder.buildSoapMessageFromOutput(builder.getOperation(binding, operation));
             boolean identical = XmlTestUtils.isIdenticalNormalizedWithoutValues(expectedResponse, response);
             assertTrue("Error during validation of service " + testServiceId, identical);

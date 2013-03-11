@@ -225,5 +225,4 @@ public class PlainHttpCooperationTest extends AbstractCooperationTest {
         verifyServiceBehavior(25, POST_SOAP_ACTION);
     }
 
-
 }

@@ -240,7 +240,7 @@ public class SoapOperationMatcher {
     }
 
     public boolean isRequestResponseOperation(BindingOperation operation) {
-        return operation.getOperation().getStyle().equals(OperationType.REQUEST_RESPONSE);
+        return SoapBuilder.isRequestResponseOperation(operation);
     }
 
 }

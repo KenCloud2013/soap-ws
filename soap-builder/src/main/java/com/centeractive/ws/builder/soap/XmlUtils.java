@@ -1755,6 +1755,9 @@ public final class XmlUtils
 
     // created by centeractive ag
     public static String sourceToXmlString(Source xmlSource) {
+        if(xmlSource == null) {
+            return "";
+        }
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer transformer = null;
         try {

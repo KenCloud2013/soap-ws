@@ -417,14 +417,17 @@ public class SoapBuilder {
     }
 
     public static OperationWrapper getOperation(Binding binding, BindingOperation operation, String soapAction) {
-        if (operation.getOperation().getStyle().equals(OperationType.REQUEST_RESPONSE)) {
-            return new OperationWrapper(binding.getQName(), operation.getName(), operation.getBindingInput().getName(),
-                    operation.getBindingOutput().getName(), normalizeSoapAction(soapAction));
-        } else {
-            return new OperationWrapper(binding.getQName(), operation.getName(), operation.getBindingInput().getName(),
-                    null, normalizeSoapAction(soapAction));
-        }
+        String bindingInputName = operation.getBindingInput() != null ? operation.getBindingInput().getName() : null;
+        String bindingOutputName = operation.getBindingOutput() != null ? operation.getBindingOutput().getName() : null;
+//        if (operation.getOperation().getStyle().equals(OperationType.REQUEST_RESPONSE)) {
+//            return new OperationWrapper(binding.getQName(), operation.getName(), operation.getBindingInput().getName(),
+//                    operation.getBindingOutput().getName(), soapAction);
+//        } else {
+        return new OperationWrapper(binding.getQName(), operation.getName(), bindingInputName, bindingOutputName, normalizeSoapAction(soapAction));
+    }
 
+    public static boolean isRequestResponseOperation(BindingOperation operation) {
+        return operation.getBindingOutput() != null && operation.getBindingOutput().getName() != null;
     }
 
 

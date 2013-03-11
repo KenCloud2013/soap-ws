@@ -49,7 +49,13 @@ public class TestUtils {
     }
 
     public static String formatContextPath(int testServiceId, Binding binding) {
-        return "/service" + formatServiceId(testServiceId) + "_" + binding.getQName().getLocalPart();
+        String namespace = binding.getQName().getNamespaceURI();
+        namespace = namespace.replace("http://", "");
+        namespace = namespace.replace("https://", "");
+        namespace = namespace.replace("www.", "");
+        namespace = namespace.replace("www", "");
+        namespace = namespace.replaceAll("[^\\p{L}]","_");
+        return "/service" + formatServiceId(testServiceId) + "_" + namespace + "_"+ binding.getQName().getLocalPart();
     }
 
     public static String getTestServiceFolderPath(int testServiceId) {
@@ -79,4 +85,4 @@ public class TestUtils {
         }
     }
 
-    }
+}
